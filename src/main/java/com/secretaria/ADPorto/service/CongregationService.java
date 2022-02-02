@@ -50,4 +50,4 @@ public class CongregationService {
         }
         return listMember;
     }
-},
+}
