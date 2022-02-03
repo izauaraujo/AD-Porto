@@ -15,10 +15,10 @@ public class CongregationService {
     private static final String COLECTTION_CONGREGACAO = "CONGREGACOES";
     private static final String COLECTTION_MEMBER = "MEMBROS";
 
-
         public String postCongregationMember(Member member) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).set(member);
+
             return collectionApiFuture.get().getUpdateTime().toString();
         }
 
@@ -37,17 +37,34 @@ public class CongregationService {
         }
 
 
-    public List<Member> getActiveMemberGeral() throws ExecutionException, InterruptedException {
-        Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<QuerySnapshot> future = dbFirestore.collectionGroup(COLECTTION_MEMBER).whereEqualTo("active", true).get();
-        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-        List<Member> listMember=new ArrayList<>();
+        public List<Member> getActiveMemberGeral() throws ExecutionException, InterruptedException {
+            Firestore dbFirestore = FirestoreClient.getFirestore();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collectionGroup(COLECTTION_MEMBER).whereEqualTo("active", true).get();
+            List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+            List<Member> listMember=new ArrayList<>();
 
-        for (DocumentSnapshot document : documents) {
-           // System.out.println(document.getId() + " => " + document.toObject(Member.class));
-            Member pessoa= document.toObject(Member.class);
-            listMember.add(pessoa);
+            for (DocumentSnapshot document : documents) {
+                // System.out.println(document.getId() + " => " + document.toObject(Member.class));
+                Member pessoa= document.toObject(Member.class);
+                listMember.add(pessoa);
+            }
+            return listMember;
         }
-        return listMember;
+
+
+        public String updateCongregationMember(Member member) throws ExecutionException, InterruptedException {
+             Firestore dbFirestore = FirestoreClient.getFirestore();
+             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).set(member);
+
+             return collectionApiFuture.get().getUpdateTime().toString();
+        }
+
+
+        public String deleteCongregationMember(Member member) throws ExecutionException, InterruptedException {
+            Firestore dbFirestore = FirestoreClient.getFirestore();
+            String name =member.getMemberName();
+            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).delete();
+
+            return "Dados do membro" +name+ "foi apagado com sucesso";
     }
 }

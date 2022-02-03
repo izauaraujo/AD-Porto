@@ -12,33 +12,38 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/ADPorto")
+@RequestMapping("/adporto")
 
 public class CongregationController {
 
+     @Autowired
+     private CongregationService congregationService;
 
-        @Autowired
-        private CongregationService congregationService;
-
-        @PostMapping("/postmember")
+     @PostMapping("/postmember")
         public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
+        return congregationService.postCongregationMember( member);
+     }
 
-            return congregationService.postCongregationMember( member);
-        }
-
-        @GetMapping("/getmember/{nomeCongregacao}")
+     @GetMapping("/getmember/{nomeCongregacao}")
         public ResponseEntity<List<Member>> getCongregationMember( @PathVariable String nomeCongregacao) throws ExecutionException, InterruptedException {
-                List<Member> lista=congregationService.getActiveCongregationMember(nomeCongregacao);
-                return ResponseEntity.ok().body(lista);
+        List<Member> lista=congregationService.getActiveCongregationMember(nomeCongregacao);
+        return ResponseEntity.ok().body(lista);
+     }
 
-        }
+     @GetMapping("/getmembergeral")
+     public ResponseEntity<List<Member>> getCongregationMemberGeral( ) throws ExecutionException, InterruptedException {
+        List<Member> lista=congregationService.getActiveMemberGeral();
+        return ResponseEntity.ok().body(lista);
+     }
 
+    @PutMapping("/updatemember")
+    public String updateCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
+        return congregationService.updateCongregationMember(member);
+    }
 
-        @GetMapping("/getmembergeral")
-        public ResponseEntity<List<Member>> getCongregationMemberGeral( ) throws ExecutionException, InterruptedException {
-                List<Member> lista=congregationService.getActiveMemberGeral();
-                return ResponseEntity.ok().body(lista);
-
-        }
+    @DeleteMapping("/deletemember")
+    public String deleteCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
+        return congregationService.deleteCongregationMember(member);
+    }
 
 }
