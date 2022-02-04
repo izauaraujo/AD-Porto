@@ -41,9 +41,9 @@ public class CongregationController {
         return congregationService.updateCongregationMember(member);
     }
 
-    @DeleteMapping("/deletemember")
-    public String deleteCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
-        return congregationService.deleteCongregationMember(member);
+    @DeleteMapping("/deletemember/{congregationName}/{memberName}")
+    public String deleteCongregationMember(@PathVariable String congregationName,@PathVariable String memberName) throws ExecutionException, InterruptedException {
+        return congregationService.deleteCongregationMember(congregationName, memberName);
     }
 
 }

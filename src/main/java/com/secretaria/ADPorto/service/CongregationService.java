@@ -60,11 +60,10 @@ public class CongregationService {
         }
 
 
-        public String deleteCongregationMember(Member member) throws ExecutionException, InterruptedException {
+        public String deleteCongregationMember(String congregationName, String memberName) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            String name =member.getMemberName();
-            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).delete();
-
-            return "Dados do membro" +name+ "foi apagado com sucesso";
+            //String name =member.getMemberName();
+            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(congregationName).collection(COLECTTION_MEMBER).document(memberName).delete();
+            return "Dados do membro "+ memberName +" da congregação "+ congregationName+" foi apagado com sucesso";
     }
 }
