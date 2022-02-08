@@ -18,7 +18,6 @@ public class CongregationService {
         public String postCongregationMember(Member member) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).set(member);
-
             return collectionApiFuture.get().getUpdateTime().toString();
         }
 
@@ -62,8 +61,8 @@ public class CongregationService {
 
         public String deleteCongregationMember(String congregationName, String memberName) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            //String name =member.getMemberName();
             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(congregationName).collection(COLECTTION_MEMBER).document(memberName).delete();
-            return "Dados do membro "+ memberName +" da congregação "+ congregationName+" foi apagado com sucesso";
+
+            return collectionApiFuture.get().getUpdateTime().toString();
     }
 }
