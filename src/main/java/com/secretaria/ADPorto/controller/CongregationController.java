@@ -19,29 +19,29 @@ public class CongregationController {
      @Autowired
      private CongregationService congregationService;
 
-     @PostMapping("/postmember")
+     @PostMapping("/createMember")
         public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
         return congregationService.postCongregationMember( member);
      }
 
-     @GetMapping("/getmember/{nomeCongregacao}")
-        public ResponseEntity<List<Member>> getCongregationMember( @PathVariable String nomeCongregacao) throws ExecutionException, InterruptedException {
-        List<Member> lista=congregationService.getActiveCongregationMember(nomeCongregacao);
+     @GetMapping("/readMember/{nameCongregation}")
+        public ResponseEntity<List<Member>> getCongregationMember( @PathVariable String nameCongregation) throws ExecutionException, InterruptedException {
+        List<Member> lista=congregationService.getActiveCongregationMember(nameCongregation);
         return ResponseEntity.ok().body(lista);
      }
 
-     @GetMapping("/getmembergeral")
-     public ResponseEntity<List<Member>> getCongregationMemberGeral( ) throws ExecutionException, InterruptedException {
+     @GetMapping("/readAllMember")
+     public ResponseEntity<List<Member>> getCongregationMemberGeneral( ) throws ExecutionException, InterruptedException {
         List<Member> lista=congregationService.getActiveMemberGeral();
         return ResponseEntity.ok().body(lista);
      }
 
-    @PutMapping("/updatemember")
+    @PutMapping("/updateMember")
     public String updateCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
         return congregationService.updateCongregationMember(member);
     }
 
-    @DeleteMapping("/deletemember/{congregationName}/{memberName}")
+    @DeleteMapping("/deleteMember/{congregationName}/{memberName}")
     public String deleteCongregationMember(@PathVariable String congregationName,@PathVariable String memberName) throws ExecutionException, InterruptedException {
         return congregationService.deleteCongregationMember(congregationName, memberName);
     }

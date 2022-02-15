@@ -1,14 +1,19 @@
 package com.secretaria.ADPorto.entity;
 
 
+import java.util.Date;
 import java.util.Map;
 
 public class  Member {
     private boolean active;
+    private Integer registrationNumber;
     private String congregationName;
     private String memberName;
     private String fatherMemberName;
     private String motherMemberName;
+    private Date dateBirth;
+    private String nationality;
+
 
 
     public boolean isActive() {

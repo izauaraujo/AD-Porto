@@ -12,19 +12,19 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class CongregationService {
 
-    private static final String COLECTTION_CONGREGACAO = "CONGREGACOES";
-    private static final String COLECTTION_MEMBER = "MEMBROS";
+    private static final String COLLECTION_CONGREGATION = "CONGREGACOES";
+    private static final String COLLECTION_MEMBER = "MEMBROS";
 
         public String postCongregationMember(Member member) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).set(member);
+            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document(member.getCongregationName()).collection(COLLECTION_MEMBER).document(member. getMemberName()).set(member);
             return collectionApiFuture.get().getUpdateTime().toString();
         }
 
 
-        public List<Member> getActiveCongregationMember(String nomeCongregacao) throws ExecutionException, InterruptedException {
+        public List<Member> getActiveCongregationMember(String nameCongregation) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLECTTION_CONGREGACAO).document(nomeCongregacao).collection(COLECTTION_MEMBER).whereEqualTo("active", true).get();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLLECTION_CONGREGATION).document(nameCongregation).collection(COLLECTION_MEMBER).whereEqualTo("active", true).get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             List<Member> listMember=new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class CongregationService {
 
         public List<Member> getActiveMemberGeral() throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<QuerySnapshot> future = dbFirestore.collectionGroup(COLECTTION_MEMBER).whereEqualTo("active", true).get();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collectionGroup(COLLECTION_MEMBER).whereEqualTo("active", true).get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             List<Member> listMember=new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class CongregationService {
 
         public String updateCongregationMember(Member member) throws ExecutionException, InterruptedException {
              Firestore dbFirestore = FirestoreClient.getFirestore();
-             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(member.getCongregationName()).collection(COLECTTION_MEMBER).document(member. getMemberName()).set(member);
+             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document(member.getCongregationName()).collection(COLLECTION_MEMBER).document(member. getMemberName()).set(member);
 
              return collectionApiFuture.get().getUpdateTime().toString();
         }
@@ -61,7 +61,7 @@ public class CongregationService {
 
         public String deleteCongregationMember(String congregationName, String memberName) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLECTTION_CONGREGACAO).document(congregationName).collection(COLECTTION_MEMBER).document(memberName).delete();
+            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document(congregationName).collection(COLLECTION_MEMBER).document(memberName).delete();
 
             return collectionApiFuture.get().getUpdateTime().toString();
     }
