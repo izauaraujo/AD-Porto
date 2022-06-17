@@ -1,9 +1,5 @@
 package com.secretaria.ADPorto.service;
 
-
-
-
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
@@ -11,7 +7,7 @@ import com.secretaria.ADPorto.entity.User;
 
 import java.util.concurrent.ExecutionException;
 
-public class userService {
+public class UserService {
 
     public String postUser(User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
 
