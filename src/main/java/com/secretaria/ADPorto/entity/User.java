@@ -2,8 +2,8 @@ package com.secretaria.ADPorto.entity;
 
 public class User {
 
-    private String passwordUser= "tatu ";
-    private String emailUser ="user@example.com";
+    private String passwordUser;//= "tatu ";
+    private String emailUser;// ="user@example.com";
 
 
     public String getPasswordUser() { return passwordUser; }
