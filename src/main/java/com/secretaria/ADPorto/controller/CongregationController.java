@@ -3,6 +3,7 @@ package com.secretaria.ADPorto.controller;
 
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.UserRecord;
 import com.secretaria.ADPorto.entity.Member;
 import com.secretaria.ADPorto.entity.User;
 import com.secretaria.ADPorto.service.CongregationService;
@@ -51,7 +52,7 @@ public class CongregationController {
     }
 
     @PostMapping("/createUser")
-    public String postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
+    public UserRecord postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
         return userService.postUser(user);
     }
 

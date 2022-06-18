@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutionException;
 
 public class UserService {
 
-    public String postUser(User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
+    public UserRecord postUser(User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
 
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail(user.getEmailUser())//"user@example.com"
@@ -25,7 +25,7 @@ public class UserService {
 
 
 
-        return null;
+        return userRecord;
     }
 
 }
