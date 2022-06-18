@@ -53,7 +53,7 @@ public class CongregationController {
 
     @PostMapping("/createUser")
     public UserRecord postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
-        return userService.postUser(user);
+        return userService.createUser( );
     }
 
 }
