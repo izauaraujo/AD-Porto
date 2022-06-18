@@ -2,13 +2,13 @@ package com.secretaria.ADPorto.entity;
 
 public class User {
 
-    private Integer passwordUser;
-    private String emailUser;
+    private String passwordUser= "tatu ";
+    private String emailUser ="user@example.com";
 
 
-    public Integer getPasswordUser() { return passwordUser; }
+    public String getPasswordUser() { return passwordUser; }
 
-    public void setPasswordUser(Integer passwordUser) {this.passwordUser = passwordUser; }
+    public void setPasswordUser(String passwordUser) {this.passwordUser = passwordUser; }
 
     public String getEmailUser() { return emailUser; }
 
