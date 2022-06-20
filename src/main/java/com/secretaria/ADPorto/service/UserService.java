@@ -10,13 +10,13 @@ public class UserService {
     public static UserRecord createUser(User user) throws FirebaseAuthException {
         // [START create_user]
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail(user.getEmailUser())//user.getEmailUser())//"user@example.com"
+                .setEmail(user.getEmailUser())
                 //.setEmailVerified(false)
-                .setPassword(user.getPasswordUser());//user.getPasswordUser())//"secretPassword"
+                .setPassword(user.getPasswordUser())
                 //.setPhoneNumber("+11234567890")
                 //.setDisplayName("John Doe")
                 //.setPhotoUrl("http://www.example.com/12345678/photo.png")
-                //.setDisabled(false);
+                .setDisabled(false);
 
         UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
         System.out.println("Successfully created new user: " + userRecord.getUid());
