@@ -7,12 +7,12 @@ import com.secretaria.ADPorto.entity.User;
 
 public class UserService {
 
-    public static UserRecord createUser() throws FirebaseAuthException {
+    public static UserRecord createUser(User user) throws FirebaseAuthException {
         // [START create_user]
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("user2@example.com")//user.getEmailUser())//"user@example.com"
+                .setEmail(user.getEmailUser())//user.getEmailUser())//"user@example.com"
                 //.setEmailVerified(false)
-                .setPassword("secretPassword");//user.getPasswordUser())//"secretPassword"
+                .setPassword(user.getPasswordUser());//user.getPasswordUser())//"secretPassword"
                 //.setPhoneNumber("+11234567890")
                 //.setDisplayName("John Doe")
                 //.setPhotoUrl("http://www.example.com/12345678/photo.png")
