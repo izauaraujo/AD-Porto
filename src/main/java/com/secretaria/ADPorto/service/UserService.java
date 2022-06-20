@@ -11,12 +11,12 @@ public class UserService {
         // [START create_user]
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail("user2@example.com")//user.getEmailUser())//"user@example.com"
-                .setEmailVerified(false)
-                .setPassword("secretPassword")//user.getPasswordUser())//"secretPassword"
-                .setPhoneNumber("+11234567890")
-                .setDisplayName("John Doe")
-                .setPhotoUrl("http://www.example.com/12345678/photo.png")
-                .setDisabled(false);
+                //.setEmailVerified(false)
+                .setPassword("secretPassword");//user.getPasswordUser())//"secretPassword"
+                //.setPhoneNumber("+11234567890")
+                //.setDisplayName("John Doe")
+                //.setPhotoUrl("http://www.example.com/12345678/photo.png")
+                //.setDisabled(false);
 
         UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
         System.out.println("Successfully created new user: " + userRecord.getUid());
