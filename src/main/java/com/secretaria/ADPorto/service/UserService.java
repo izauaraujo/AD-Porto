@@ -10,7 +10,7 @@ public class UserService {
     public static UserRecord createUser() throws FirebaseAuthException {
         // [START create_user]
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("user@example.com")//user.getEmailUser())//"user@example.com"
+                .setEmail("user2@example.com")//user.getEmailUser())//"user@example.com"
                 .setEmailVerified(false)
                 .setPassword("secretPassword")//user.getPasswordUser())//"secretPassword"
                 .setPhoneNumber("+11234567890")
