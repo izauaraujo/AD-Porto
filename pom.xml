@@ -8,26 +8,20 @@
 		<version>2.6.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
 	<groupId>com.secretaria</groupId>
 	<artifactId>AD-Porto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AD-Porto</name>
 	<description>Projeto Spring Boot AD-Porto</description>
-
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-admin -->
@@ -36,6 +30,16 @@
 			<artifactId>firebase-admin</artifactId>
 			<version>8.1.0</version>
 		</dependency>
+
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
+
 
 </project>
