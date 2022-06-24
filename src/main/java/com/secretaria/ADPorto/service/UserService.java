@@ -22,6 +22,7 @@ public class UserService {
         System.out.println("Successfully created new user: " + userRecord.getUid());
         // [END create_user]
 
+
         return null;
     }
 
