@@ -21,10 +21,13 @@ public class UserService {
         UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
         System.out.println("Successfully created new user: " + userRecord.getUid());
         // [END create_user]
-
-
         return null;
-
     }
 
+    public static UserRecord findUser(User user) throws FirebaseAuthException {
+        UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(user.getEmailUser());
+        // See the UserRecord reference doc for the contents of userRecord.
+        //System.out.println("Successfully fetched user data: " + userRecord.getEmail());
+        return userRecord;
+    }
 }

@@ -22,7 +22,7 @@ public class CongregationController {
 
      @Autowired
      private CongregationService congregationService;
-     private UserService userService;
+
 
      @PostMapping("/createMember")
         public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
@@ -49,11 +49,6 @@ public class CongregationController {
     @DeleteMapping("/deleteMember/{congregationName}/{memberName}")
     public String deleteCongregationMember(@PathVariable String congregationName,@PathVariable String memberName) throws ExecutionException, InterruptedException {
         return congregationService.deleteCongregationMember(congregationName, memberName);
-    }
-
-    @PostMapping("/createUser")
-    public UserRecord postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
-        return userService.createUser( user);
     }
 
 }
