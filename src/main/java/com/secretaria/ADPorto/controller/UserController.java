@@ -23,7 +23,7 @@ public class UserController {
 
 
     @GetMapping("/findUser")
-    public UserRecord getUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
+    public String getUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
         return userService.findUser( user);
     }
 

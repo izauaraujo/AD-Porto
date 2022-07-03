@@ -24,10 +24,10 @@ public class UserService {
         return null;
     }
 
-    public static UserRecord findUser(User user) throws FirebaseAuthException {
+    public static String findUser(User user) throws FirebaseAuthException {
         UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(user.getEmailUser());
         // See the UserRecord reference doc for the contents of userRecord.
         //System.out.println("Successfully fetched user data: " + userRecord.getEmail());
-        return userRecord;
+        return userRecord.getUid();
     }
 }
