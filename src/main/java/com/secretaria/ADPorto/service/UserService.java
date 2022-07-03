@@ -5,6 +5,9 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import com.secretaria.ADPorto.entity.User;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UserService {
 
     public static UserRecord createUser(User user) throws FirebaseAuthException {
@@ -24,10 +27,24 @@ public class UserService {
         return null;
     }
 
-    public static String findUser(User user) throws FirebaseAuthException {
-        UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(user.getEmailUser());
+   // public static String findUser(User user) throws FirebaseAuthException {
+   //     UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(user.getEmailUser());
         // See the UserRecord reference doc for the contents of userRecord.
         //System.out.println("Successfully fetched user data: " + userRecord.getEmail());
-        return userRecord.getUid();
+    //    return userRecord.getUid();
+    //}
+
+    public static String loginUser(User user) throws FirebaseAuthException {
+        UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(user.getEmailUser());
+        String uid = userRecord.getUid();
+        Map<String, Object> additionalClaims = new HashMap<String, Object>();
+        if (user.getRoleUser()=="Admin") {
+            additionalClaims.put("Admin", true);
+        }else {
+            additionalClaims.put("User", true);
+        }
+        String customToken = FirebaseAuth.getInstance().createCustomToken(uid, additionalClaims);
+
+    return customToken;
     }
 }
