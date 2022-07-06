@@ -34,7 +34,7 @@ public class UserService {
     //    return userRecord.getUid();
     //}
 
-    public static String loginUser(User user) throws FirebaseAuthException {
+    public static String TokenUser(User user) throws FirebaseAuthException {
         UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(user.getEmailUser());
         String uid = userRecord.getUid();
         Map<String, Object> additionalClaims = new HashMap<String, Object>();
