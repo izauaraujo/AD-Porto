@@ -8,9 +8,10 @@ import com.secretaria.ADPorto.entity.Member;
 import com.secretaria.ADPorto.entity.User;
 import com.secretaria.ADPorto.service.CongregationService;
 import com.secretaria.ADPorto.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -20,7 +21,6 @@ import java.util.concurrent.ExecutionException;
 
 public class CongregationController {
 
-     @Autowired
      private CongregationService congregationService;
 
 
