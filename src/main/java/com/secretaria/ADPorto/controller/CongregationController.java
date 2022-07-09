@@ -9,7 +9,7 @@ import com.secretaria.ADPorto.entity.User;
 import com.secretaria.ADPorto.service.CongregationService;
 import com.secretaria.ADPorto.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
