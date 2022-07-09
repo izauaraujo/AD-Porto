@@ -18,7 +18,7 @@ public class CongregationService {
         public String postCongregationMember(Member member) throws ExecutionException, InterruptedException {
 
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document("member.getCongregationName()").collection(COLLECTION_MEMBER).document(member.getMemberName()).set(member);
+            ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document(member.getCongregationName()).collection(COLLECTION_MEMBER).document(member.getMemberName()).set(member);
             return collectionApiFuture.get().getUpdateTime().toString();
         }
 

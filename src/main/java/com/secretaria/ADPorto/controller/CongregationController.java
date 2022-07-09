@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping(value = "/adporto")
+@RequestMapping("/adporto")
 
 public class CongregationController {
 
