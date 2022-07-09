@@ -17,12 +17,12 @@ public class CongregationController {
      private CongregationService congregationService;
 
 
-     @PostMapping(value = "/createMember")
+     @PostMapping("/createMember")
         public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
         return congregationService.postCongregationMember( member);
      }
 
-     @GetMapping(value = "/readMember/{nameCongregation}")
+     @GetMapping("/readMember/{nameCongregation}")
         public ResponseEntity<List<Member>> getCongregationMember( @PathVariable String nameCongregation) throws ExecutionException, InterruptedException {
         List<Member> lista=congregationService.getActiveCongregationMember(nameCongregation);
         return ResponseEntity.ok().body(lista);
