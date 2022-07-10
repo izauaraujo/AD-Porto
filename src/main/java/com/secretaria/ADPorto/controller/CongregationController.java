@@ -1,14 +1,8 @@
 package com.secretaria.ADPorto.controller;
 
 
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
 import com.secretaria.ADPorto.entity.Member;
-import com.secretaria.ADPorto.entity.User;
 import com.secretaria.ADPorto.service.CongregationService;
-import com.secretaria.ADPorto.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,14 +14,13 @@ import java.util.concurrent.ExecutionException;
 
 public class CongregationController {
 
-     @Autowired
      private CongregationService congregationService;
-     private UserService userService;
 
-     @PostMapping("/createMember")
-        public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
-        return congregationService.postCongregationMember( member);
-     }
+
+    // @PostMapping("/createMember")
+    //    public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
+    //    return congregationService.postCongregationMember( member);
+     //}
 
      @GetMapping("/readMember/{nameCongregation}")
         public ResponseEntity<List<Member>> getCongregationMember( @PathVariable String nameCongregation) throws ExecutionException, InterruptedException {
@@ -49,11 +42,6 @@ public class CongregationController {
     @DeleteMapping("/deleteMember/{congregationName}/{memberName}")
     public String deleteCongregationMember(@PathVariable String congregationName,@PathVariable String memberName) throws ExecutionException, InterruptedException {
         return congregationService.deleteCongregationMember(congregationName, memberName);
-    }
-
-    @PostMapping("/createUser")
-    public UserRecord postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
-        return userService.createUser( user);
     }
 
 }

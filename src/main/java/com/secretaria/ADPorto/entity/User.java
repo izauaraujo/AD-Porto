@@ -2,14 +2,14 @@ package com.secretaria.ADPorto.entity;
 
 public class   User {
 
-    private String nameUser;
+    //private String nameUser;
     private String passwordUser;
     private String roleUser;
     private String EmailUser;
 
-    public String getNameUser() { return nameUser; }
+   // public String getNameUser() { return nameUser; }
 
-    public void setNameUser(String nameUser) { this.nameUser = nameUser; }
+  //  public void setNameUser(String nameUser) { this.nameUser = nameUser; }
 
     public String getPasswordUser() { return passwordUser; }
 
