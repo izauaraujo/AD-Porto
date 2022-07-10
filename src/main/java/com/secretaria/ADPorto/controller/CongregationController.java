@@ -10,17 +10,17 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-//@RequestMapping("/adporto")
+@RequestMapping("/adporto")
 
 public class CongregationController {
 
      private CongregationService congregationService;
 
 
-     @PostMapping("/createMember")
-        public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
-        return congregationService.postCongregationMember( member);
-     }
+    // @PostMapping("/createMember")
+    //    public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
+    //    return congregationService.postCongregationMember( member);
+     //}
 
      @GetMapping("/readMember/{nameCongregation}")
         public ResponseEntity<List<Member>> getCongregationMember( @PathVariable String nameCongregation) throws ExecutionException, InterruptedException {
