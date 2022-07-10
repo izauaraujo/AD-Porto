@@ -17,11 +17,9 @@ public class FirebaseInitialization {
     @PostConstruct
       public void initialization() throws IOException {
 
-        FileInputStream serviceAccount =
-                new FileInputStream("./serviceAccountKey.json");
-
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+        FirebaseOptions options = FirebaseOptions.builder()
+                .setCredentials(GoogleCredentials.getApplicationDefault())
+                .setDatabaseUrl("https://<DATABASE_NAME>.firebaseio.com/")
                 .build();
 
         FirebaseApp.initializeApp(options);
