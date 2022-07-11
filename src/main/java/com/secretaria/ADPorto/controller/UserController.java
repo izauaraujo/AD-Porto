@@ -22,10 +22,6 @@ public class UserController {
     public UserRecord postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
         return userService.createUser( user);
     }
-    @PostMapping("/createMember")
-    public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
-        return congregationService.postCongregationMember( member);
-    }
 
     @GetMapping("/tokenUser")
     public String getUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
