@@ -6,13 +6,12 @@ import java.util.Map;
 
 public class  Member {
     private boolean active;
-    private Integer registrationNumber;
+   // private Integer registrationNumber;
     private String congregationName;
     private String memberName;
     private String fatherMemberName;
     private String motherMemberName;
-    private Date dateBirth;
-    private String nationality;
+    // private Date dateBirth;  private String nationality;
 
 
 //izau
