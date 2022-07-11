@@ -23,7 +23,7 @@ public class CongregationController {
      @Autowired
      private CongregationService congregationService;
 
-
+//izau
      @PostMapping("/createMember")
         public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
         return congregationService.postCongregationMember( member);

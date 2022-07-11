@@ -45,4 +45,5 @@
 		</plugins>
 	</build>
 
+	<!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-admin -->
 </project>

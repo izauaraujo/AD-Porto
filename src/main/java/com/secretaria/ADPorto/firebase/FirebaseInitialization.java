@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 
 @Service
 public class FirebaseInitialization {
-
+//izau
     @PostConstruct
       public void initialization(){
 
@@ -29,6 +29,7 @@ public class FirebaseInitialization {
 
           } catch (Exception e) {
               e.printStackTrace();
+
           }
     }
 }

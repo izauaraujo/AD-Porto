@@ -15,7 +15,7 @@ public class  Member {
     private String nationality;
 
 
-
+//izau
     public boolean isActive() {
         return active;
     }
