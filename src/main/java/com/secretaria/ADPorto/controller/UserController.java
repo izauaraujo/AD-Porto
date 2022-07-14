@@ -23,7 +23,7 @@ public class UserController {
         return userService.createUser( user);
     }
 
-    @GetMapping("/tokenUser")
+    @PostMapping("/loginUser")
     public String getUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
         return userService.TokenUser(user);
     }
