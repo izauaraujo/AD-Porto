@@ -5,7 +5,6 @@ import com.google.firebase.auth.UserRecord;
 import com.secretaria.ADPorto.entity.Member;
 import com.secretaria.ADPorto.entity.User;
 import com.secretaria.ADPorto.service.CongregationService;
-import com.secretaria.ADPorto.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,16 +14,11 @@ import java.util.concurrent.ExecutionException;
 //izau
 @RestController
 public class UserController {
-    private CongregationService congregationService;
-    private UserService userService;
 
-    @PostMapping("/createUser")
-    public UserRecord postUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
-        return userService.createUser( user);
-    }
+    //private UserService userService;
 
-    @PostMapping("/loginUser")
-    public String getUser(@RequestBody User user) throws ExecutionException, InterruptedException, FirebaseAuthException {
-        return userService.TokenUser(user);
-    }
+   // @PostMapping("/createUser")
+   // public String postUser(@RequestBody User user) throws ExecutionException, InterruptedException {
+   //     return userService.createUser(user);
+  //  }
 }

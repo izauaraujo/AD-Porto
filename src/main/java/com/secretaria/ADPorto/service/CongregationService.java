@@ -4,6 +4,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
 import com.secretaria.ADPorto.entity.Member;
+import com.secretaria.ADPorto.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,12 +16,30 @@ public class CongregationService {
     private static final String COLLECTION_CONGREGATION = "CONGREGACOES";
     private static final String COLLECTION_MEMBER = "MEMBROS";
 
+
+    private static final String COLLECTION_USER = "teste";
+    private static final String COLLECTION_name = "teste2";
+
         public String postCongregationMember(Member member) throws ExecutionException, InterruptedException {
 
             Firestore dbFirestore = FirestoreClient.getFirestore();
             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document(member.getCongregationName()).collection(COLLECTION_MEMBER).document(member.getMemberName()).set(member);
             return collectionApiFuture.get().getUpdateTime().toString();
         }
+
+
+       public String createUser(User user) throws ExecutionException, InterruptedException {
+
+            //String pass = user.getUserPassword();
+            //user.setUserPassword(encoder.encode(pass));
+
+             Firestore dbFirestore = FirestoreClient.getFirestore();
+             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_USER).document(user.getUserName()).collection(COLLECTION_name).document(user.getUserName()).set(user);;
+             return collectionApiFuture.get().getUpdateTime().toString();
+       }
+
+
+
 
 
         public List<Member> getActiveCongregationMember(String nameCongregation) throws ExecutionException, InterruptedException {
@@ -65,5 +84,5 @@ public class CongregationService {
             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_CONGREGATION).document(congregationName).collection(COLLECTION_MEMBER).document(memberName).delete();
 
             return collectionApiFuture.get().getUpdateTime().toString();
-    }
+        }
 }

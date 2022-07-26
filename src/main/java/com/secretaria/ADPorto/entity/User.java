@@ -2,24 +2,19 @@ package com.secretaria.ADPorto.entity;
 //izau
 public class   User {
 
-    //private String nameUser;
-    private String passwordUser;
-    private String roleUser;
-    private String EmailUser;
+    private String userName;
+    private String userPassword;
+    private String userRole;
 
-   // public String getNameUser() { return nameUser; }
+    public String getUserName() { return userName; }
 
-  //  public void setNameUser(String nameUser) { this.nameUser = nameUser; }
+    public void setUserName(String userName) { this.userName = userName; }
 
-    public String getPasswordUser() { return passwordUser; }
+    public String getUserPassword() { return userPassword; }
 
-    public void setPasswordUser(String passwordUser) { this.passwordUser = passwordUser;}
+    public void setUserPassword(String userPassword) { this.userPassword = userPassword; }
 
-    public String getRoleUser() { return roleUser; }
+    public String getUserRole() { return userRole; }
 
-    public void setRoleUser(String roleUser) {this.roleUser = roleUser; }
-
-    public String getEmailUser() {return EmailUser;}
-
-    public void setEmailUser(String emailUser) {EmailUser = emailUser;}
+    public void setUserRole(String userRole) { this.userRole = userRole; }
 }
