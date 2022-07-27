@@ -1,13 +1,10 @@
 package com.secretaria.ADPorto.controller;
 
 
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
 import com.secretaria.ADPorto.entity.Member;
 import com.secretaria.ADPorto.entity.User;
 import com.secretaria.ADPorto.service.CongregationService;
-import com.secretaria.ADPorto.service.SerService;
+import com.secretaria.ADPorto.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +17,8 @@ import java.util.concurrent.ExecutionException;
 
 public class CongregationController {
 
-     @Autowired
-     private CongregationService congregationService;
-    private SerService userService;
+    @Autowired
+    private CongregationService congregationService;
 
 //izau
      @PostMapping("/createMember")
@@ -52,13 +48,6 @@ public class CongregationController {
         return congregationService.deleteCongregationMember(congregationName, memberName);
     }
 
-
-
-
-    @PostMapping("/createUser")
-    public String postUser(@RequestBody User user) throws ExecutionException, InterruptedException {
-        return userService.createUser(user);
-    }
 }
 
 

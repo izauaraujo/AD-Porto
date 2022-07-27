@@ -32,8 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/adporto/createMember").permitAll()///adporto/createMember
-                .antMatchers(HttpMethod.POST,"/adporto/createUser").permitAll()
-                //.antMatchers(HttpMethod.GET,"/users").hasAnyRole("USERS","MANAGERS")
+                //.antMatchers(HttpMethod.POST,"/createUser").permitAll()
+                .antMatchers(HttpMethod.GET,"/createUser").hasAnyRole("USERS","MANAGERS")
                // .antMatchers("/managers").hasAnyRole("MANAGERS")
                 .anyRequest().authenticated()
                 .and()
