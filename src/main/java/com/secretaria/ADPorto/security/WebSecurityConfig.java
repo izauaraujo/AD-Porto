@@ -28,13 +28,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().disable();
         http.cors().and().csrf().disable()
-               // .addFilterAfter(new JWTFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new JWTFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-               .antMatchers("/h2-console/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/adporto/createMember").permitAll()///adporto/createMember
-                //.antMatchers(HttpMethod.POST,"/createUser").permitAll()
-                .antMatchers(HttpMethod.GET,"/createUser").hasAnyRole("USERS","MANAGERS")
-               // .antMatchers("/managers").hasAnyRole("MANAGERS")
+                //.antMatchers(HttpMethod.POST,"/createUser").permitAll()///adporto/createMember
+                .antMatchers(HttpMethod.POST,"/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/createUser").hasAnyRole("MANAGERS")
+                .antMatchers(HttpMethod.POST,"/createMember").hasAnyRole("MANAGERS")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

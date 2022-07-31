@@ -1,14 +1,8 @@
-package com.secretaria.ADPorto.entity;
+package com.secretaria.ADPorto.dtos;
 
-import java.util.ArrayList;
-import java.util.List;
-
-//izau
-public class   User {
-
+public class Login {
     private String userName;
     private String password;
-    private List<String> roles; //= new ArrayList<>();
 
     public String getUserName() {
         return userName;
@@ -24,13 +18,5 @@ public class   User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
     }
 }

@@ -21,8 +21,8 @@ public class UserService {
 
     public String createUser(User user) throws InterruptedException, ExecutionException {
 
-       String pass = user.getUserPassword();
-       user.setUserPassword(encoder.encode(pass));
+       String pass = user.getPassword();
+       user.setPassword(encoder.encode(pass));
 
        Firestore dbFirestore = FirestoreClient.getFirestore();
        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_USER).document(user.getUserName()).set(user);;
