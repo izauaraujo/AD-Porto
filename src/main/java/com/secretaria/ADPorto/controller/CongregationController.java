@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/adporto")
 
@@ -21,6 +21,7 @@ public class CongregationController {
     private CongregationService congregationService;
 
 //izau
+
      @PostMapping("/createMember")
         public String postCongregationMember(@RequestBody Member member) throws ExecutionException, InterruptedException {
         return congregationService.postCongregationMember( member);
