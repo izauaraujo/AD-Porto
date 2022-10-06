@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/adporto")
+//@RequestMapping("/adporto")
 
 public class CongregationController {
 
