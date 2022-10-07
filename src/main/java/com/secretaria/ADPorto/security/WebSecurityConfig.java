@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers(HttpMethod.POST,"/createUser").permitAll()///adporto/createMember
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/createUser").hasAnyRole("MANAGERS")
-                .antMatchers(HttpMethod.POST,"/adporto/createMember").hasAnyRole("MANAGERS")
+                .antMatchers(HttpMethod.POST,"/createMember").hasAnyRole("MANAGERS")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
