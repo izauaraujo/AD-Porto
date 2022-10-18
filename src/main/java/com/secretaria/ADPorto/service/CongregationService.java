@@ -58,7 +58,7 @@ public class CongregationService {
 
         public List<Member> getActiveMemberGeral() throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<QuerySnapshot> future = dbFirestore.collectionGroup(COLLECTION_MEMBER).whereEqualTo("situation", "true").get();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collectionGroup(COLLECTION_MEMBER).whereEqualTo("situation", "ativo").get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             List<Member> listMember=new ArrayList<>();
 
