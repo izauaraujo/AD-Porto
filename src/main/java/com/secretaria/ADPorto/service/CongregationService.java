@@ -34,7 +34,7 @@ public class CongregationService {
             //user.setUserPassword(encoder.encode(pass));
 
              Firestore dbFirestore = FirestoreClient.getFirestore();
-             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_USER).document(user.getUserName()).collection(COLLECTION_name).document(user.getUserName()).set(user);;
+             ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_USER).document(user.getUserName()).collection(COLLECTION_name).document(user.getUserName()).set(user);
              return collectionApiFuture.get().getUpdateTime().toString();
        }
 
@@ -44,7 +44,7 @@ public class CongregationService {
 
         public List<Member> getActiveCongregationMember(String nameCongregation) throws ExecutionException, InterruptedException {
             Firestore dbFirestore = FirestoreClient.getFirestore();
-            ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLLECTION_CONGREGATION).document(nameCongregation).collection(COLLECTION_MEMBER).whereEqualTo("situation", "Ativo").get();
+            ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLLECTION_CONGREGATION).document(nameCongregation).collection(COLLECTION_MEMBER).whereEqualTo("situation","Ativo").get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
             List<Member> listMember=new ArrayList<>();
 
