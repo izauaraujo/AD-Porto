@@ -9,12 +9,12 @@ public class  Member {
     private Integer memberRegistrationNumber;
     private String congregationName;
     private String memberName;
-    private String fatherMemberName;
-    private String motherMemberName;
+    private String fatherName;
+    private String motherName;
     private Date dateBirth;
     private String nationality;
     private String cityBirth;
-    private String stateBirth;
+    private String districtBirth;
     private String maritalStatus;
     private String DateBaptism;
     private String churchBaptism;
@@ -23,11 +23,12 @@ public class  Member {
     private String CPF;
     private String RG;
     private String spouse;
-    private  String origination;
-    private String streetAvenue;
-    private int number;
+    private String origination;
+    private String address;
+    private String addressNumber;
+    private String district;
+    private String city;
     private String note;
-
 
     public String getSituation() {
         return situation;
@@ -61,20 +62,20 @@ public class  Member {
         this.memberName = memberName;
     }
 
-    public String getFatherMemberName() {
-        return fatherMemberName;
+    public String getFatherName() {
+        return fatherName;
     }
 
-    public void setFatherMemberName(String fatherMemberName) {
-        this.fatherMemberName = fatherMemberName;
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
     }
 
-    public String getMotherMemberName() {
-        return motherMemberName;
+    public String getMotherName() {
+        return motherName;
     }
 
-    public void setMotherMemberName(String motherMemberName) {
-        this.motherMemberName = motherMemberName;
+    public void setMotherName(String motherName) {
+        this.motherName = motherName;
     }
 
     public Date getDateBirth() {
@@ -101,12 +102,12 @@ public class  Member {
         this.cityBirth = cityBirth;
     }
 
-    public String getStateBirth() {
-        return stateBirth;
+    public String getDistrictBirth() {
+        return districtBirth;
     }
 
-    public void setStateBirth(String stateBirth) {
-        this.stateBirth = stateBirth;
+    public void setDistrictBirth(String districtBirth) {
+        this.districtBirth = districtBirth;
     }
 
     public String getMaritalStatus() {
@@ -181,20 +182,36 @@ public class  Member {
         this.origination = origination;
     }
 
-    public String getStreetAvenue() {
-        return streetAvenue;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreetAvenue(String streetAvenue) {
-        this.streetAvenue = streetAvenue;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public int getNumber() {
-        return number;
+    public String getAddressNumber() {
+        return addressNumber;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setAddressNumber(String addressNumber) {
+        this.addressNumber = addressNumber;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getNote() {
