@@ -149,13 +149,13 @@ public class CongregationService {
     }
 
     public static Object downloadFoto(String fileName) throws IOException {
-        String destFileName = UUID.randomUUID().toString().concat(getExtension(fileName));     // to set random strinh for destination file name
-        String destFilePath = "Z:\\New folder\\" + destFileName;                                    // to set destination file path
+        String destFileName = UUID.randomUUID().toString().concat(getExtension(fileName));    // to set random strinh for destination file name
+        String destFilePath = "C:\\foto\\" + destFileName;                                    // to set destination file path
 
         ////////////////////////////////   Download  ////////////////////////////////////////////////////////////////////////
-        Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("path of JSON with genarated private key"));
+        Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("./serviceAccountKey.json"));
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
-        Blob blob = storage.get(BlobId.of("your bucket name", fileName));
+        Blob blob = storage.get(BlobId.of("ad-porto-74a1a.appspot.com", fileName));
         blob.downloadTo(Paths.get(destFilePath));
         return ("Successfully Downloaded!");
     }
