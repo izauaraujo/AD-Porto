@@ -155,7 +155,7 @@ public class CongregationService {
         ////////////////////////////////   Download  ////////////////////////////////////////////////////////////////////////
         Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("./serviceAccountKey.json"));
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
-        Blob blob = storage.get(BlobId.of("ad-porto-74a1a.appspot.com/Photos", fileName));
+        Blob blob = storage.get(BlobId.of("ad-porto-74a1a.appspot.com", fileName));
         blob.downloadTo(Paths.get(destFilePath));
         return ("Successfully Downloaded!");
     }
