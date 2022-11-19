@@ -215,12 +215,13 @@ public class  Member {
         this.city = city;
     }
 
-    public String getNote() {
+    public String getPhoto() {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setPhoto(String note) {
         this.note = note;
     }
+
 }
 
