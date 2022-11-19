@@ -29,6 +29,7 @@ public class  Member {
     private String district;
     private String city;
     private String note;
+    private String photo;
 
     public String getSituation() {
         return situation;
